@@ -7,8 +7,6 @@ array_multisort($columns, SORT_ASC, $happyBirthday);
 $i=0;
 $j=0;
 
-var_dump($happyBirthday);
-
 $message = "Bonjour Alexandre.<br/>";
 foreach($happyBirthday as $k => $bDvalue) {
     switch ($bDvalue['birthday']) {
@@ -27,13 +25,13 @@ foreach($happyBirthday as $k => $bDvalue) {
             if ($i>1) {$subject .= " et de ";}
             $subject .= "{$bDvalue['name']}";
             $agef = $bDvalue['age']+1;
-            $test = french_date($bDvalue['date']);
+            $dateAnniv = french_date($bDvalue['date']);
             if ($bDvalue['birthday'] == 7) {
                 $semaine = "une semaine";
             } else {
                 $semaine = "deux semaines";
             }
-            $message .= "<p>C'est bientôt l'anniversaire de {$bDvalue['name']} qui va avoir {$agef} ans dans {$semaine} le {$test}</p>";
+            $message .= "<p>C'est bientôt l'anniversaire de {$bDvalue['name']} qui va avoir {$agef} ans dans {$semaine} le {$dateAnniv}</p>";
             break;
     }
 }
