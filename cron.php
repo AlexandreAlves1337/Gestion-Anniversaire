@@ -26,11 +26,7 @@ foreach($happyBirthday as $k => $bDvalue) {
             $subject .= "{$bDvalue['name']}";
             $agef = $bDvalue['age']+1;
             $dateAnniv = french_date($bDvalue['date']);
-            if ($bDvalue['birthday'] == 7) {
-                $semaine = "une semaine";
-            } else {
-                $semaine = "deux semaines";
-            }
+            $semaine = ($bDvalue['birthday'] == 7) ? "une semaine" : "deux semaines";
             $message .= "<p>C'est bientôt l'anniversaire de {$bDvalue['name']} qui va avoir {$agef} ans dans {$semaine} le {$dateAnniv}</p>";
             break;
     }
@@ -44,5 +40,7 @@ if (!empty($subject)) {
         "From" => "Alexandre Alves <no-reply@alexandrealves.fr>",
         "Content-Type" => "text/html; charset=utf-8"
     ];
-    mail($to, $subject, $message, $headers);
+    //mail($to, $subject, $message, $headers);
 }
+
+echo $message;
