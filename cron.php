@@ -15,7 +15,7 @@ foreach($happyBirthday as $k => $bDvalue) {
             if ($j==1) {$subject = "C'est l'anniversaire de ";}
             if ($j>1) {$subject .= " et de ";}
             $subject .= "{$bDvalue['name']}";
-            $message .= "<p>C'est l'anniversaire de {$bDvalue['name']} qui vient d'avoir {$bDvalue['age']} ans</p>";
+            $message .= "<p>C'est l'anniversaire de {$bDvalue['name']} qui vient d'avoir {$bDvalue['age']} ans.</p>";
             break;
         case 7:
         case 14:
@@ -27,7 +27,7 @@ foreach($happyBirthday as $k => $bDvalue) {
             $agef = $bDvalue['age']+1;
             $dateAnniv = french_date($bDvalue['date']);
             $semaine = ($bDvalue['birthday'] == 7) ? "une semaine" : "deux semaines";
-            $message .= "<p>C'est bientôt l'anniversaire de {$bDvalue['name']} qui va avoir {$agef} ans dans {$semaine} le {$dateAnniv}</p>";
+            $message .= "<p>C'est bientôt l'anniversaire de {$bDvalue['name']} qui va avoir {$agef} ans dans {$semaine} le {$dateAnniv}.</p>";
             break;
     }
 }
@@ -40,7 +40,5 @@ if (!empty($subject)) {
         "From" => "Alexandre Alves <no-reply@alexandrealves.fr>",
         "Content-Type" => "text/html; charset=utf-8"
     ];
-    //mail($to, $subject, $message, $headers);
+    mail($to, $subject, $message, $headers);
 }
-
-echo $message;
