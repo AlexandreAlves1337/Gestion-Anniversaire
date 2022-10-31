@@ -21,6 +21,21 @@ $list_anniv = [
 $happyBdarr = [];
 $actualDate = new DateTime();
 
+function french_date($datefr) {
+    $datepart = str_replace('/', '-', $datefr);
+    $anniv = new DateTime($datepart);
+    $annive = $anniv->format('Y-m-d');
+    $fmt = new IntlDateFormatter(
+        "fr-FR", 
+        IntlDateFormatter::FULL, 
+        IntlDateFormatter::FULL, 
+        'Etc/UTC', 
+        IntlDateFormatter::GREGORIAN, 
+        'd MMMM'
+    );
+    return $fmt->format(new DateTime($annive));
+}
+
 function preBDay($list_anniv, $actualDate) : array
 {
     foreach($list_anniv as $k => $anniv) {
