@@ -24,7 +24,8 @@ $actualDate = new DateTime();
 function french_date($datefr) {
     $datepart = str_replace('/', '-', $datefr);
     $anniv = new DateTime($datepart);
-    $annive = $anniv->format('Y-m-d');
+    $dateMail = $anniv->add(new DateInterval('P1D')); // ajout d'un jour pour corriger bug de la date lors de l'envoi du mail
+    $annive = $dateMail->format('Y-m-d');
     $fmt = new IntlDateFormatter(
         "fr-FR", 
         IntlDateFormatter::FULL, 
