@@ -48,7 +48,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <img src="anniv.gif" alt="gif où il est écrit joyeux anniversaire" title="Joyeux anniversaire <?=$bDvalue['name']?>">
+                <img src="anniv.gif" class="img-fluid" alt="gif où il est écrit joyeux anniversaire" title="Joyeux anniversaire <?=$bDvalue['name']?>">
                 <h4 class="text-center"><?=$bDvalue['age']?> ans aujourd'hui ça se fête 🎂</h4>
               </div>
             </div>
